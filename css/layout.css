@@ -1,0 +1,183 @@
+/*
+SPEC: Layout System
+Goal: Provide a consistent grid and spacing system so that all sections share
+      a coherent visual rhythm and developers can compose layouts without
+      writing custom grid rules every time.
+Users: Developers building page sections; indirectly, all site visitors
+Acceptance criteria:
+- AC1: .container provides a max-width of 1200px centered with responsive padding
+- AC2: .section provides consistent vertical padding using spacing tokens
+- AC3: .grid-2 creates a two-column layout that stacks on mobile
+- AC4: .bento provides a dense auto-flow grid for card layouts
+- AC5: All layouts are mobile-first (stacked by default, columns at min-width breakpoints)
+Out of scope:
+- Component-level layout (handled in components.css)
+- Animation or transition layout effects (handled in animations.css)
+*/
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--space-6);
+  }
+}
+
+/* Section wrapper */
+.section {
+  padding-block: var(--space-9);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-10);
+  }
+}
+
+/* Section header */
+.section__header {
+  margin-bottom: var(--space-7);
+}
+
+.section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-3);
+}
+
+.section__title {
+  margin-bottom: var(--space-3);
+}
+
+.section__subtitle {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 56ch;
+}
+
+/* Two-column grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* Three-column grid */
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Bento grid */
+.bento {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-flow: dense;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.bento--wide > *:first-child {
+  grid-column: span 1;
+}
+
+@media (min-width: 1024px) {
+  .bento--wide > *:first-child {
+    grid-column: span 2;
+  }
+}
+
+/* Flex utilities */
+.flex {
+  display: flex;
+}
+
+.flex--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex--between {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex--gap-2 { gap: var(--space-2); }
+.flex--gap-3 { gap: var(--space-3); }
+.flex--gap-4 { gap: var(--space-4); }
+.flex--gap-5 { gap: var(--space-5); }
+
+/* Spacing utilities */
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
+.mt-5 { margin-top: var(--space-5); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-7 { margin-top: var(--space-7); }
+
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-5 { margin-bottom: var(--space-5); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-7 { margin-bottom: var(--space-7); }
+
+/* Two-pane layout for playground */
+.pane-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .pane-layout {
+    grid-template-columns: 55fr 45fr;
+    gap: var(--space-6);
+  }
+}

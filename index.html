@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn Spec-Driven Development — an interactive guide built with SDD itself. Write specs first. Build the right thing. Every time." />
+  <title>Learn Spec-Driven Development</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+  <!--
+  SPEC: Navigation Shell
+  Goal: Provide persistent navigation enabling quick access to all major sections.
+  Users: All site visitors
+  Acceptance criteria:
+  - AC1: Fixed to top of viewport
+  - AC2: Backdrop blur + border on scroll > 50px
+  - AC3: Mobile hamburger opens full-screen overlay
+  - AC4: Playground CTA always visible
+  Out of scope: Sub-navigation, dropdowns
+  -->
+  <header role="banner">
+    <nav class="nav" aria-label="Main navigation" id="main-nav">
+      <div class="nav__inner">
+        <!-- Logo -->
+        <a href="#home" class="nav__logo" aria-label="SDD — go to home">
+          <span>SDD</span>
+        </a>
+
+        <!-- Desktop links -->
+        <ul class="nav__links" role="list">
+          <li><a href="#home" class="nav__link">Home</a></li>
+          <li><a href="#concept" class="nav__link">Learn</a></li>
+          <li><a href="#playground" class="nav__link">Playground</a></li>
+          <li><a href="#meta" class="nav__link">How this was built</a></li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="nav__actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+          </button>
+
+          <a href="#playground" class="btn btn--primary btn--sm" aria-label="Open spec playground">
+            Open Playground
+          </a>
+
+          <!-- Hamburger (mobile only) -->
+          <button
+            class="nav__hamburger"
+            id="hamburger-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile overlay menu -->
+    <div
+      class="nav__mobile-menu"
+      id="mobile-menu"
+      role="dialog"
+      aria-label="Navigation menu"
+      aria-modal="true"
+    >
+      <ul role="list" style="list-style:none; text-align:center; display:flex; flex-direction:column; gap: var(--space-7);">
+        <li><a href="#home" class="nav__mobile-link" data-close-menu>Home</a></li>
+        <li><a href="#concept" class="nav__mobile-link" data-close-menu>Learn</a></li>
+        <li><a href="#playground" class="nav__mobile-link" data-close-menu>Playground</a></li>
+        <li><a href="#meta" class="nav__mobile-link" data-close-menu>How this was built</a></li>
+      </ul>
+      <a href="#playground" class="btn btn--primary" data-close-menu style="margin-top: var(--space-5);">
+        Open Playground
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ======================================
+         SECTION 1: HERO
+         ====================================== -->
+    <section id="home" class="hero" aria-label="Hero">
+      <!-- filled in Phase 3 -->
+      <details class="meta-spec">
+        <summary>Spec: Hero Section</summary>
+        <pre>
+SPEC: Hero Section
+Goal: Immediately communicate what SDD is and create momentum for the user
+      to start learning — delivering value within 10 seconds of landing.
+Users: First-time visitors, primarily mid/senior developers
+Acceptance criteria:
+- AC1: Viewport-height section with aurora/mesh CSS background
+- AC2: Headline "Write the spec. Build the thing. Repeat." in Syne font
+- AC3: Two CTAs: "Start learning" (→ #learn) and "See how this was built" (→ #meta)
+- AC4: Animated spec snippet cycles through 3 examples with typewriter effect
+- AC5: Scroll badge fades in after 1.5s
+Out of scope:
+- Video backgrounds
+- User authentication
+        </pre>
+      </details>
+    </section>
+
+    <!-- ======================================
+         SECTION 2: CONCEPT
+         ====================================== -->
+    <section id="concept" aria-label="What is Spec-Driven Development">
+      <!-- filled in Phase 3 -->
+      <details class="meta-spec">
+        <summary>Spec: Concept Section</summary>
+        <pre>
+SPEC: Conceptual Introduction
+Goal: Define SDD clearly enough that Marco can explain it to a colleague
+      in one sentence after reading this section.
+Users: First-time visitors unfamiliar with SDD
+Acceptance criteria:
+- AC1: Three-card bento layout (The Problem, The Spec, The Loop)
+- AC2: Each card has icon, title, 2-sentence description, and meta-spec block
+- AC3: Horizontal comparison strip "Ad-hoc dev vs SDD" with 5 dimensions
+- AC4: Section stacks to 1 column on mobile
+Out of scope:
+- Comparison to BDD/TDD/DDD methodologies
+        </pre>
+      </details>
+    </section>
+
+    <!-- ======================================
+         SECTION 3: LEARN
+         ====================================== -->
+    <section id="learn" aria-label="Learning path">
+      <!-- filled in Phase 4 -->
+      <details class="meta-spec">
+        <summary>Spec: Learning Path Section</summary>
+        <pre>
+SPEC: 5-Module Learning Path
+Goal: Guide Marco through the full SDD methodology in a self-paced,
+      progress-tracked format so he retains the key concepts.
+Users: Mid/senior developers learning SDD for team adoption
+Acceptance criteria:
+- AC1: Progress bar reflects localStorage completion state
+- AC2: Five module cards in asymmetric bento grid
+- AC3: Each card: number, title, description, time estimate, CTA
+- AC4: Module content expands inline via accordion (no page navigation)
+- AC5: "Mark as complete" persists to localStorage
+Out of scope:
+- Server-side progress tracking
+- Assessments or quizzes
+        </pre>
+      </details>
+    </section>
+
+    <!-- ======================================
+         SECTION 4: PLAYGROUND
+         ====================================== -->
+    <section id="playground" aria-label="Spec playground">
+      <!-- filled in Phase 5 -->
+      <details class="meta-spec">
+        <summary>Spec: Spec Playground</summary>
+        <pre>
+SPEC: Interactive Spec Playground
+Goal: Let Marco write a real spec and get instant structured feedback so he
+      leaves with a validated spec he can use in his next ticket.
+Users: Developers actively learning or practicing SDD
+Acceptance criteria:
+- AC1: Two-pane layout (editor left, analysis right) on desktop; stacked on mobile
+- AC2: Textarea editor with line numbers, tab-to-indent, Ctrl+Enter shortcut
+- AC3: Validation engine scores 4 dimensions: structure, AC quality,
+       goal clarity, scope definition
+- AC4: Score displayed as circular CSS conic-gradient meter
+- AC5: Three example specs loadable via buttons
+- AC6: "Copy this spec" copies to clipboard
+Out of scope:
+- Saving specs to a server
+- Sharing specs via URL
+        </pre>
+      </details>
+    </section>
+
+    <!-- ======================================
+         SECTION 5: META
+         ====================================== -->
+    <section id="meta" aria-label="How this site was built">
+      <!-- filled in Phase 6 -->
+      <details class="meta-spec">
+        <summary>Spec: Meta-Case Section</summary>
+        <pre>
+SPEC: Meta-Case "How This Site Was Built"
+Goal: Demonstrate SDD credibility by showing every phase's spec, decisions,
+      and retrospective for the very site the user is reading.
+Users: Skeptical developers who want proof that SDD works in practice
+Acceptance criteria:
+- AC1: Vertical CSS timeline showing all 7 phases with real git commit hashes
+- AC2: "Inspect spec" floating button reveals spec of any section on click
+- AC3: Build log reader renders /docs/build-log.md with basic markdown support
+- AC4: All section meta-spec blocks are filled with actual specs
+Out of scope:
+- Real-time git integration
+- External analytics
+        </pre>
+      </details>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <p class="footer__text">Built with Spec-Driven Development · 2026</p>
+      <nav class="footer__links" aria-label="Footer navigation">
+        <a href="docs/build-log.md" class="footer__link" target="_blank" rel="noopener">View build log</a>
+        <a href="https://github.com/alexlecco/learn-spec-driven-dev" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Floating inspect button (Phase 6) -->
+  <button
+    class="inspect-btn"
+    id="inspect-btn"
+    aria-label="Toggle inspect spec mode"
+    aria-pressed="false"
+  >
+    <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+    Inspect spec
+  </button>
+
+  <!-- Modal for spec inspection (Phase 6) -->
+  <div
+    class="modal-backdrop"
+    id="spec-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <div class="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="modal-title">Section Spec</h2>
+        <button class="modal__close" id="modal-close" aria-label="Close modal">
+          <i class="ph ph-x" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/progress.js"></script>
+  <script src="js/playground.js"></script>
+  <script src="js/meta.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

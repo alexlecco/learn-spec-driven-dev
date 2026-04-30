@@ -1,0 +1,114 @@
+/*
+SPEC: Design Tokens
+Goal: Establish a single source of truth for all visual values so that every
+      component references tokens rather than raw values, enabling global
+      theming changes with minimal effort.
+Users: Developers working on any CSS file in this project
+Acceptance criteria:
+- AC1: All color, spacing, typography, radius, and transition values are defined
+       as CSS custom properties under :root
+- AC2: Dark mode values are the default; light mode overrides via media query
+- AC3: No component file hard-codes a color, spacing, or font value
+Out of scope:
+- Component-specific tokens (those live in components.css)
+- Any JS access to token values
+*/
+
+:root {
+  /* Colors — brand */
+  --color-accent: #7C6FE0;
+  --color-accent-glow: #7C6FE033;
+  --color-accent-2: #2DD4BF;
+  --color-accent-2-glow: #2DD4BF22;
+  --color-accent-3: #F97316;
+
+  /* Backgrounds */
+  --bg-base: #0C0C0F;
+  --bg-surface: #14141A;
+  --bg-elevated: #1C1C26;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+
+  /* Text */
+  --text-primary: #F0EFF8;
+  --text-secondary: #9994B8;
+  --text-muted: #56546A;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-display: 'Syne', var(--font-sans);
+
+  /* Font sizes — fluid */
+  --text-xs: clamp(0.7rem, 1.5vw, 0.75rem);
+  --text-sm: clamp(0.8rem, 1.8vw, 0.875rem);
+  --text-base: clamp(0.9rem, 2vw, 1rem);
+  --text-lg: clamp(1rem, 2.5vw, 1.125rem);
+  --text-xl: clamp(1.1rem, 3vw, 1.25rem);
+  --text-2xl: clamp(1.25rem, 4vw, 1.5rem);
+  --text-3xl: clamp(1.5rem, 5vw, 2rem);
+  --text-4xl: clamp(2rem, 6vw, 3rem);
+  --text-hero: clamp(2.5rem, 6vw, 5rem);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-default: 250ms;
+  --duration-slow: 400ms;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 32px var(--color-accent-glow);
+
+  /* Z-index layers */
+  --z-base: 0;
+  --z-overlay: 10;
+  --z-nav: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-base: #F8F7FF;
+    --bg-surface: #FFFFFF;
+    --bg-elevated: #F0EFF8;
+    --bg-glass: rgba(0, 0, 0, 0.03);
+    --text-primary: #13111F;
+    --text-secondary: #4A4567;
+    --text-muted: #9994B8;
+    --border-subtle: rgba(0, 0, 0, 0.05);
+    --border-default: rgba(0, 0, 0, 0.09);
+    --border-strong: rgba(0, 0, 0, 0.15);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+  }
+}
