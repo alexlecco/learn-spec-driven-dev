@@ -20,10 +20,10 @@ Out of scope:
 const COMMIT_HASHES = {
   1: '3b06ced',
   2: 'ec3c52d',
-  3: null,
-  4: null,
-  5: null,
-  6: null,
+  3: '770240d',
+  4: '770240d',
+  5: '770240d',
+  6: '770240d',
   7: null,
 };
 
