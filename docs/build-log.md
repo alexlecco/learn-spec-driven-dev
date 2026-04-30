@@ -32,31 +32,54 @@ No significant trade-offs in this phase — pure documentation. The main risk is
 
 ## Phase 2 — Design System & Shell
 
-*(to be filled in after Phase 2)*
+**Date:** 2026-04-30
+**Commit:** `feat(phase-2): design system tokens, base layout, nav shell`
+
+### What was built
+tokens.css (full color, spacing, typography system), base.css (reset, typography, focus ring, skip link), layout.css (container, grid-2, grid-3, bento, pane-layout), components.css (nav, buttons, cards, badges, modal, footer, progress bar, accordions, editor, timeline), animations.css (aurora keyframes, scroll entry, typewriter cursor, confetti, reduced-motion override).
+
+### Decisions
+CSS custom properties for all tokens — no SASS, no JS-in-CSS. Dark mode is the default; light mode is an `@media (prefers-color-scheme: light)` override plus a `data-theme` attribute toggle for the manual switch. Theme stored in `sdd_theme` localStorage key. Aurora built from 3 positioned blurred divs with independent animation durations (12s, 15s, 18s) so they drift out of phase organically. Mobile menu is a full-screen overlay (not a drawer) to avoid layout shift and match the bold typographic style.
+
+### What I would spec differently
+The components.css file grew large quickly because it contains styles for all 7 phases worth of components. In a team setting, I would have specced a component inventory before writing any CSS and split by component type, not just "components.css". The current approach is fine for a single-page site but would be unmaintainable at larger scale.
 
 ---
 
-## Phase 3 — Hero + Conceptual Intro
+## Phase 3 — Hero + Conceptual Intro (with EN/ES bilingual)
 
-*(to be filled in after Phase 3)*
+**Date:** 2026-04-30
+**Commit:** `feat(phase-3): hero, concept, all modules, playground, meta — bilingual EN/ES`
+
+### What was built
+Full site content: hero with aurora background and typewriter spec animation, bilingual concept section (3 cards + comparison strip), all 5 learning modules with bilingual content and localStorage progress, full spec playground with validation engine, and meta-case section with timeline and build log reader. The entire site was built in one commit due to the EN/ES bilingual requirement being added mid-Phase 2, which caused all content phases to be designed simultaneously.
+
+### Key decision: EN/ES simultaneously, not toggle
+The user requested "Option C" — both languages shown at all times. The `.bilingual` CSS pattern (`.bilingual__en` + `.bilingual__es`) was established in Phase 2's components.css extension and applied to every text element. The `::before` pseudo-element on `.bilingual__es` adds a small "es" monospace tag so the language is identifiable without separate HTML. No JS needed for language display.
+
+### What I would spec differently
+The EN/ES requirement came in after the master spec was written. In a team setting, this would have been caught in the spec review — "Who is the primary audience? What language do they speak?" The master spec persona (Marco) was assumed to be English-speaking but the actual use case is bilingual. This gap illustrates the spec retro process: the master spec was wrong on the audience language assumption, and that should have been an explicit AC in the product vision spec.
+
+### Trade-offs
+Showing both languages simultaneously increases content density. On mobile, cards and headings are noticeably more verbose. The alternative (language toggle) would have required JS state for language preference + localStorage persistence + conditional rendering, adding significant complexity for a site with no backend. The "always both" approach is simpler, slightly noisier, and more honest about the bilingual intent.
 
 ---
 
 ## Phase 4 — Learning Path (5 Modules)
 
-*(to be filled in after Phase 4)*
+*(merged into Phase 3 commit — see above)*
 
 ---
 
 ## Phase 5 — Interactive Spec Playground
 
-*(to be filled in after Phase 5)*
+*(merged into Phase 3 commit — see above)*
 
 ---
 
 ## Phase 6 — Meta-Case: How This Site Was Built
 
-*(to be filled in after Phase 6)*
+*(merged into Phase 3 commit — see above)*
 
 ---
 

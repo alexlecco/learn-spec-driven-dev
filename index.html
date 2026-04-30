@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Learn Spec-Driven Development — an interactive guide built with SDD itself. Write specs first. Build the right thing. Every time." />
-  <title>Learn Spec-Driven Development</title>
+  <title>Learn Spec-Driven Development / Desarrollo Guiado por Especificaciones</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,44 +26,44 @@
   <!-- Skip to main content -->
   <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-  <!--
+  <!-- ============================================================
   SPEC: Navigation Shell
-  Goal: Provide persistent navigation enabling quick access to all major sections.
+  Goal: Provide persistent navigation enabling quick access to all
+        major sections from any scroll position.
   Users: All site visitors
   Acceptance criteria:
-  - AC1: Fixed to top of viewport
-  - AC2: Backdrop blur + border on scroll > 50px
-  - AC3: Mobile hamburger opens full-screen overlay
-  - AC4: Playground CTA always visible
-  Out of scope: Sub-navigation, dropdowns
-  -->
+  - AC1: Fixed to top of viewport on all screen sizes
+  - AC2: Backdrop blur + border-bottom on scroll > 50px
+  - AC3: Mobile hamburger opens full-screen overlay menu
+  - AC4: "Open Playground" CTA always visible
+  Out of scope: Sub-navigation, dropdown menus
+  ============================================================ -->
   <header role="banner">
     <nav class="nav" aria-label="Main navigation" id="main-nav">
       <div class="nav__inner">
-        <!-- Logo -->
         <a href="#home" class="nav__logo" aria-label="SDD — go to home">
           <span>SDD</span>
         </a>
 
-        <!-- Desktop links -->
         <ul class="nav__links" role="list">
           <li><a href="#home" class="nav__link">Home</a></li>
-          <li><a href="#concept" class="nav__link">Learn</a></li>
+          <li><a href="#concept" class="nav__link">Learn <span style="color:var(--text-muted);font-size:0.85em">/ Aprender</span></a></li>
           <li><a href="#playground" class="nav__link">Playground</a></li>
-          <li><a href="#meta" class="nav__link">How this was built</a></li>
+          <li><a href="#meta" class="nav__link">How it was built <span style="color:var(--text-muted);font-size:0.85em">/ Cómo se hizo</span></a></li>
         </ul>
 
-        <!-- Actions -->
         <div class="nav__actions">
           <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme">
             <i class="ph ph-moon" aria-hidden="true"></i>
           </button>
 
           <a href="#playground" class="btn btn--primary btn--sm" aria-label="Open spec playground">
-            Open Playground
+            <span class="btn-bilingual">
+              <span class="bilingual__en">Open Playground</span>
+              <span class="bilingual__es">Abrir Playground</span>
+            </span>
           </a>
 
-          <!-- Hamburger (mobile only) -->
           <button
             class="nav__hamburger"
             id="hamburger-btn"
@@ -79,7 +79,6 @@
       </div>
     </nav>
 
-    <!-- Mobile overlay menu -->
     <div
       class="nav__mobile-menu"
       id="mobile-menu"
@@ -87,25 +86,88 @@
       aria-label="Navigation menu"
       aria-modal="true"
     >
-      <ul role="list" style="list-style:none; text-align:center; display:flex; flex-direction:column; gap: var(--space-7);">
+      <ul role="list" style="list-style:none;text-align:center;display:flex;flex-direction:column;gap:var(--space-7)">
         <li><a href="#home" class="nav__mobile-link" data-close-menu>Home</a></li>
-        <li><a href="#concept" class="nav__mobile-link" data-close-menu>Learn</a></li>
+        <li><a href="#concept" class="nav__mobile-link" data-close-menu>Learn / Aprender</a></li>
         <li><a href="#playground" class="nav__mobile-link" data-close-menu>Playground</a></li>
-        <li><a href="#meta" class="nav__mobile-link" data-close-menu>How this was built</a></li>
+        <li><a href="#meta" class="nav__mobile-link" data-close-menu>How it was built / Cómo se hizo</a></li>
       </ul>
-      <a href="#playground" class="btn btn--primary" data-close-menu style="margin-top: var(--space-5);">
-        Open Playground
+      <a href="#playground" class="btn btn--primary" data-close-menu style="margin-top:var(--space-5)">
+        Open Playground / Abrir Playground
       </a>
     </div>
   </header>
 
   <main id="main-content">
 
-    <!-- ======================================
+    <!-- ============================================================
          SECTION 1: HERO
-         ====================================== -->
-    <section id="home" class="hero" aria-label="Hero">
-      <!-- filled in Phase 3 -->
+         ============================================================ -->
+    <section id="home" class="hero" aria-labelledby="hero-headline">
+
+      <!-- Aurora background -->
+      <div class="aurora" aria-hidden="true">
+        <div class="aurora__orb aurora__orb--1"></div>
+        <div class="aurora__orb aurora__orb--2"></div>
+        <div class="aurora__orb aurora__orb--3"></div>
+        <div class="aurora__noise"></div>
+      </div>
+
+      <div class="hero__content container">
+
+        <!-- Left: text column -->
+        <div class="hero__text">
+          <p class="hero__scroll-badge animate-on-scroll" aria-hidden="true">
+            ↓ scroll to explore / desplazate para explorar
+          </p>
+
+          <h1 class="hero__headline" id="hero-headline">
+            <div class="bilingual">
+              <span class="bilingual__en">Write the spec.<br>Build the thing.<br>Repeat.</span>
+              <span class="bilingual__es">Escribe el spec.<br>Construye lo correcto.<br>Repite.</span>
+            </div>
+          </h1>
+
+          <div class="hero__sub">
+            <div class="bilingual">
+              <span class="bilingual__en">Learn Spec-Driven Development with an interactive guide built using SDD itself.</span>
+              <span class="bilingual__es">Aprendé Desarrollo Guiado por Especificaciones con una guía interactiva construida con SDD.</span>
+            </div>
+          </div>
+
+          <div class="hero__ctas">
+            <a href="#concept" class="btn btn--primary btn--lg">
+              <span class="btn-bilingual">
+                <span class="bilingual__en">Start learning</span>
+                <span class="bilingual__es">Empezar</span>
+              </span>
+            </a>
+            <a href="#meta" class="btn btn--ghost btn--lg">
+              <span class="btn-bilingual">
+                <span class="bilingual__en">See how this was built</span>
+                <span class="bilingual__es">Ver cómo se construyó</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: animated code panel (desktop only) -->
+        <div class="hero__code-panel" aria-label="Spec example" aria-live="polite">
+          <div class="code-block">
+            <div class="code-block__header">
+              <div class="code-block__dots">
+                <span class="code-block__dot code-block__dot--red"></span>
+                <span class="code-block__dot code-block__dot--yellow"></span>
+                <span class="code-block__dot code-block__dot--green"></span>
+              </div>
+              <span class="code-block__lang">spec</span>
+            </div>
+            <div class="code-block__body" id="typewriter-output" aria-atomic="true"></div>
+          </div>
+        </div>
+
+      </div>
+
       <details class="meta-spec">
         <summary>Spec: Hero Section</summary>
         <pre>
@@ -114,10 +176,10 @@ Goal: Immediately communicate what SDD is and create momentum for the user
       to start learning — delivering value within 10 seconds of landing.
 Users: First-time visitors, primarily mid/senior developers
 Acceptance criteria:
-- AC1: Viewport-height section with aurora/mesh CSS background
-- AC2: Headline "Write the spec. Build the thing. Repeat." in Syne font
-- AC3: Two CTAs: "Start learning" (→ #learn) and "See how this was built" (→ #meta)
-- AC4: Animated spec snippet cycles through 3 examples with typewriter effect
+- AC1: Viewport-height section with aurora/mesh CSS background (pure CSS, no JS)
+- AC2: Bilingual headline EN + ES in Syne display font
+- AC3: Two bilingual CTAs: "Start learning / Empezar" and "See how this was built / Ver cómo se construyó"
+- AC4: Animated spec snippet cycles through 3 examples with typewriter effect on desktop
 - AC5: Scroll badge fades in after 1.5s
 Out of scope:
 - Video backgrounds
@@ -126,11 +188,202 @@ Out of scope:
       </details>
     </section>
 
-    <!-- ======================================
-         SECTION 2: CONCEPT
-         ====================================== -->
-    <section id="concept" aria-label="What is Spec-Driven Development">
-      <!-- filled in Phase 3 -->
+    <!-- ============================================================
+         SECTION 2: CONCEPT — "What is SDD?"
+         ============================================================ -->
+    <section id="concept" class="section" aria-labelledby="concept-title">
+      <div class="container">
+
+        <div class="section__header animate-on-scroll">
+          <p class="section__eyebrow">
+            <i class="ph ph-lightbulb" aria-hidden="true"></i>
+            What is SDD? / ¿Qué es SDD?
+          </p>
+          <h2 class="section__title" id="concept-title">
+            <div class="bilingual">
+              <span class="bilingual__en">Specs before code. Always.</span>
+              <span class="bilingual__es">El spec primero. Siempre.</span>
+            </div>
+          </h2>
+          <div class="section__subtitle">
+            <div class="bilingual">
+              <span class="bilingual__en">Stop building the wrong thing perfectly. Write the spec first.</span>
+              <span class="bilingual__es">Dejá de construir perfectamente la cosa equivocada. Escribí el spec primero.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three bento cards -->
+        <div class="grid-3 stagger-children" role="list">
+
+          <!-- Card 1: The Problem -->
+          <article class="concept-card concept-card--problem animate-on-scroll" role="listitem">
+            <div class="concept-card__icon" aria-hidden="true">
+              <i class="ph ph-warning-circle"></i>
+            </div>
+            <h3 class="concept-card__title">
+              <div class="bilingual">
+                <span class="bilingual__en">The Problem</span>
+                <span class="bilingual__es">El Problema</span>
+              </div>
+            </h3>
+            <div class="bilingual--body bilingual">
+              <span class="bilingual__en">Developers ship the wrong thing not because they can't code, but because the goal was never written down. Requirements live in Slack threads, hallway conversations, and half-remembered meetings.</span>
+              <span class="bilingual__es">Los desarrolladores construyen lo incorrecto no porque no sepan codear, sino porque el objetivo nunca se escribió. Los requisitos viven en hilos de Slack, conversaciones de pasillo y reuniones medio recordadas.</span>
+            </div>
+            <details class="meta-spec">
+              <summary>Spec: Problem Card</summary>
+              <pre>
+SPEC: The Problem Card
+Goal: Name the pain that SDD solves so the reader recognizes it as their own.
+Users: Mid/senior devs who have shipped the wrong thing
+Acceptance criteria:
+- AC1: Describes the root cause (missing written goal) not just symptoms
+- AC2: Bilingual EN + ES
+Out of scope: SDD solution (that's the next card)
+              </pre>
+            </details>
+          </article>
+
+          <!-- Card 2: The Spec -->
+          <article class="concept-card concept-card--spec animate-on-scroll" role="listitem">
+            <div class="concept-card__icon" aria-hidden="true">
+              <i class="ph ph-file-text"></i>
+            </div>
+            <h3 class="concept-card__title">
+              <div class="bilingual">
+                <span class="bilingual__en">The Spec</span>
+                <span class="bilingual__es">El Spec</span>
+              </div>
+            </h3>
+            <div class="bilingual--body bilingual">
+              <span class="bilingual__en">A spec is a structured short document: the goal, the users, the acceptance criteria, and what's out of scope. Written before a single line of code. It fits in a comment block, a ticket, or a Notion page.</span>
+              <span class="bilingual__es">Un spec es un documento corto y estructurado: el objetivo, los usuarios, los criterios de aceptación y qué está fuera del alcance. Se escribe antes de una sola línea de código. Cabe en un bloque de comentario, un ticket o una página de Notion.</span>
+            </div>
+            <div style="margin-top:var(--space-4)">
+              <div class="code-block">
+                <div class="code-block__header">
+                  <div class="code-block__dots">
+                    <span class="code-block__dot code-block__dot--red"></span>
+                    <span class="code-block__dot code-block__dot--yellow"></span>
+                    <span class="code-block__dot code-block__dot--green"></span>
+                  </div>
+                  <span class="code-block__lang">spec</span>
+                </div>
+                <div class="code-block__body" style="font-size:var(--text-xs)"><span class="spec-key">SPEC:</span><span class="spec-value"> User login</span>
+<span class="spec-key">Goal:</span><span class="spec-value"> Allow users to authenticate
+      so they can access their data</span>
+<span class="spec-key">Users:</span><span class="spec-value"> Registered users, mobile + web</span>
+<span class="spec-key">Acceptance criteria:</span>
+<span class="spec-ac">- Submit email + password → JWT returned</span>
+<span class="spec-ac">- Invalid credentials → 401, error message</span>
+<span class="spec-ac">- Rate-limit 5 failures per minute</span>
+<span class="spec-key">Out of scope:</span>
+<span class="spec-comment">- OAuth / social login</span>
+<span class="spec-comment">- 2FA (next sprint)</span></div>
+              </div>
+            </div>
+            <details class="meta-spec">
+              <summary>Spec: The Spec Card</summary>
+              <pre>
+SPEC: The Spec Card
+Goal: Show what a spec looks like in practice so the concept becomes concrete.
+Users: Developers who have never written a structured spec
+Acceptance criteria:
+- AC1: Includes a live, realistic spec example (not lorem ipsum)
+- AC2: All required spec fields are present in the example
+- AC3: Bilingual EN + ES
+Out of scope: Validation, scoring
+              </pre>
+            </details>
+          </article>
+
+          <!-- Card 3: The Loop -->
+          <article class="concept-card concept-card--loop animate-on-scroll" role="listitem">
+            <div class="concept-card__icon" aria-hidden="true">
+              <i class="ph ph-arrows-clockwise"></i>
+            </div>
+            <h3 class="concept-card__title">
+              <div class="bilingual">
+                <span class="bilingual__en">The Loop</span>
+                <span class="bilingual__es">El Ciclo</span>
+              </div>
+            </h3>
+            <div class="bilingual--body bilingual">
+              <span class="bilingual__en">After building, you write a brief retrospective: what matched the spec, what diverged, and why. That retro feeds the next spec. The loop keeps your process honest and your team aligned over time.</span>
+              <span class="bilingual__es">Después de construir, escribís una retrospectiva breve: qué coincidió con el spec, qué divergió y por qué. Esa retro alimenta el próximo spec. El ciclo mantiene tu proceso honesto y tu equipo alineado con el tiempo.</span>
+            </div>
+            <div style="margin-top:var(--space-4);display:flex;align-items:center;justify-content:center;gap:var(--space-3);flex-wrap:wrap">
+              <span class="badge badge--accent"><i class="ph ph-file-text" aria-hidden="true"></i> Spec</span>
+              <span style="color:var(--text-muted);font-size:var(--text-lg)" aria-hidden="true">→</span>
+              <span class="badge badge--teal"><i class="ph ph-code" aria-hidden="true"></i> Build</span>
+              <span style="color:var(--text-muted);font-size:var(--text-lg)" aria-hidden="true">→</span>
+              <span class="badge badge--amber"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i> Retro</span>
+              <span style="color:var(--text-muted);font-size:var(--text-lg)" aria-hidden="true">→</span>
+              <span class="badge badge--accent"><i class="ph ph-file-text" aria-hidden="true"></i> Next spec</span>
+            </div>
+            <details class="meta-spec">
+              <summary>Spec: The Loop Card</summary>
+              <pre>
+SPEC: The Loop Card
+Goal: Show that SDD is a cycle, not a one-time upfront activity, so teams
+      understand how it compounds over time.
+Users: Developers evaluating SDD for ongoing team use
+Acceptance criteria:
+- AC1: Spec → Build → Retro → Next spec flow is visually clear
+- AC2: Bilingual EN + ES
+Out of scope: Detailed retro format (covered in Module 4)
+              </pre>
+            </details>
+          </article>
+
+        </div>
+
+        <!-- Comparison strip -->
+        <div class="comparison-strip animate-on-scroll" role="region" aria-label="Ad-hoc development vs SDD comparison">
+          <div class="comparison-strip__header">
+            <span class="comparison-dimension-label" style="font-size:var(--text-xs);color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;font-family:var(--font-mono)">Dimension</span>
+            <span class="comparison-strip__col-label comparison-strip__col-label--adhoc">
+              Ad-hoc dev / Dev sin spec
+            </span>
+            <span class="comparison-strip__col-label comparison-strip__col-label--sdd">
+              Spec-Driven / Con SDD
+            </span>
+          </div>
+
+          <div class="comparison-row">
+            <span class="comparison-dimension-label">Alignment / Alineación</span>
+            <div class="comparison-bar comparison-bar--adhoc" style="width:35%">Low / Baja</div>
+            <div class="comparison-bar comparison-bar--sdd" style="width:90%">High / Alta</div>
+          </div>
+
+          <div class="comparison-row">
+            <span class="comparison-dimension-label">Rework / Retrabajo</span>
+            <div class="comparison-bar comparison-bar--adhoc" style="width:80%">Frequent / Frecuente</div>
+            <div class="comparison-bar comparison-bar--sdd" style="width:20%">Rare / Raro</div>
+          </div>
+
+          <div class="comparison-row">
+            <span class="comparison-dimension-label">Onboarding speed / Velocidad de onboarding</span>
+            <div class="comparison-bar comparison-bar--adhoc" style="width:30%">Slow / Lento</div>
+            <div class="comparison-bar comparison-bar--sdd" style="width:85%">Fast / Rápido</div>
+          </div>
+
+          <div class="comparison-row">
+            <span class="comparison-dimension-label">Scope creep / Creep de alcance</span>
+            <div class="comparison-bar comparison-bar--adhoc" style="width:75%">Common / Común</div>
+            <div class="comparison-bar comparison-bar--sdd" style="width:20%">Controlled / Controlado</div>
+          </div>
+
+          <div class="comparison-row">
+            <span class="comparison-dimension-label">Shared understanding / Entendimiento compartido</span>
+            <div class="comparison-bar comparison-bar--adhoc" style="width:25%">Assumed / Asumido</div>
+            <div class="comparison-bar comparison-bar--sdd" style="width:95%">Written / Escrito</div>
+          </div>
+        </div>
+
+      </div>
+
       <details class="meta-spec">
         <summary>Spec: Concept Section</summary>
         <pre>
@@ -139,21 +392,597 @@ Goal: Define SDD clearly enough that Marco can explain it to a colleague
       in one sentence after reading this section.
 Users: First-time visitors unfamiliar with SDD
 Acceptance criteria:
-- AC1: Three-card bento layout (The Problem, The Spec, The Loop)
-- AC2: Each card has icon, title, 2-sentence description, and meta-spec block
-- AC3: Horizontal comparison strip "Ad-hoc dev vs SDD" with 5 dimensions
-- AC4: Section stacks to 1 column on mobile
+- AC1: Three-card grid layout (The Problem, The Spec, The Loop) — stacks on mobile
+- AC2: Each card has icon, bilingual title, bilingual 2-sentence description
+- AC3: Horizontal comparison strip with 5 dimensions as colored bars
+- AC4: Section uses animate-on-scroll for staggered card entry
 Out of scope:
 - Comparison to BDD/TDD/DDD methodologies
         </pre>
       </details>
     </section>
 
-    <!-- ======================================
-         SECTION 3: LEARN
-         ====================================== -->
-    <section id="learn" aria-label="Learning path">
-      <!-- filled in Phase 4 -->
+    <!-- ============================================================
+         SECTION 3: LEARN — 5-module learning path
+         ============================================================ -->
+    <section id="learn" class="section" aria-labelledby="learn-title" style="background:var(--bg-surface)">
+      <div class="container">
+
+        <div class="section__header animate-on-scroll">
+          <p class="section__eyebrow">
+            <i class="ph ph-graduation-cap" aria-hidden="true"></i>
+            Learning path / Camino de aprendizaje
+          </p>
+          <h2 class="section__title" id="learn-title">
+            <div class="bilingual">
+              <span class="bilingual__en">The SDD learning path</span>
+              <span class="bilingual__es">El camino de aprendizaje SDD</span>
+            </div>
+          </h2>
+          <div class="section__subtitle">
+            <div class="bilingual">
+              <span class="bilingual__en">Five modules. Real examples. Zero fluff. Track your progress as you go.</span>
+              <span class="bilingual__es">Cinco módulos. Ejemplos reales. Sin relleno. Seguí tu progreso.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="animate-on-scroll">
+          <div class="progress-label">
+            <span class="progress-label__text">
+              <span data-en="Your progress" data-es="Tu progreso">Your progress / Tu progreso</span>
+            </span>
+            <span class="progress-label__count">0/5 complete</span>
+          </div>
+          <div class="progress-bar" role="progressbar" aria-label="Learning progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="5">
+            <div class="progress-bar__fill" style="width:0%"></div>
+          </div>
+        </div>
+
+        <!-- Module cards bento -->
+        <div class="bento bento--wide stagger-children" style="margin-top:var(--space-6)">
+
+          <!-- Module 1 -->
+          <article class="module-card" data-module="m1" role="listitem">
+            <div class="module-card__number">01</div>
+            <h3 class="module-card__title">
+              <div class="bilingual">
+                <span class="bilingual__en">Anatomy of a spec</span>
+                <span class="bilingual__es">Anatomía de un spec</span>
+              </div>
+            </h3>
+            <div class="module-card__desc bilingual--body bilingual">
+              <span class="bilingual__en">What fields every spec must have. A live annotated example with highlighted regions you can explore.</span>
+              <span class="bilingual__es">Qué campos debe tener cada spec. Un ejemplo anotado en vivo con regiones destacadas para explorar.</span>
+            </div>
+            <div class="module-card__footer">
+              <span class="module-card__time">
+                <i class="ph ph-clock" aria-hidden="true"></i>
+                5 min read
+              </span>
+              <button class="btn btn--primary btn--sm module-card__cta" aria-expanded="false" aria-controls="module-1-content">
+                <span class="btn-bilingual">
+                  <span class="bilingual__en">Start</span>
+                  <span class="bilingual__es">Empezar</span>
+                </span>
+              </button>
+            </div>
+            <div class="accordion" id="module-1-content">
+              <div class="accordion__content module-content">
+
+                <h4>
+                  <div class="bilingual">
+                    <span class="bilingual__en">The 5 required fields</span>
+                    <span class="bilingual__es">Los 5 campos obligatorios</span>
+                  </div>
+                </h4>
+                <div class="bilingual--body bilingual">
+                  <span class="bilingual__en">Every spec must answer five questions before a line of code is written:</span>
+                  <span class="bilingual__es">Cada spec debe responder cinco preguntas antes de escribir una línea de código:</span>
+                </div>
+                <ul style="margin-top:var(--space-3)">
+                  <li><strong>SPEC:</strong> — The feature name. Short, memorable, searchable. / El nombre de la funcionalidad. Corto, memorable, buscable.</li>
+                  <li><strong>Goal:</strong> — What outcome the user achieves. Starts with "Allow", "Enable", "Let". / Qué resultado logra el usuario. Comienza con "Permitir", "Habilitar", "Dejar".</li>
+                  <li><strong>Users:</strong> — Who uses this, on what device/context. / Quién lo usa, en qué dispositivo/contexto.</li>
+                  <li><strong>Acceptance criteria:</strong> — Testable, verb-first statements. Each AC is a test you can run. / Declaraciones verificables, con verbo al inicio. Cada AC es una prueba que podés ejecutar.</li>
+                  <li><strong>Out of scope:</strong> — Explicit list of what this feature does NOT include. / Lista explícita de lo que esta funcionalidad NO incluye.</li>
+                </ul>
+
+                <h4>
+                  <div class="bilingual">
+                    <span class="bilingual__en">Annotated example</span>
+                    <span class="bilingual__es">Ejemplo anotado</span>
+                  </div>
+                </h4>
+                <div class="example-block">SPEC: Password reset
+Goal: Allow registered users to reset their password via email
+      so they can regain access without contacting support.
+Users: Registered users on web and mobile
+
+Acceptance criteria:
+- Request reset → email sent within 60 seconds
+- Reset link expires after 24 hours
+- New password must be 8+ chars, 1 uppercase, 1 number
+- Old password is invalidated immediately on reset
+
+Out of scope:
+- SMS-based reset
+- Admin-initiated resets</div>
+
+                <div class="bilingual--body bilingual" style="margin-top:var(--space-4)">
+                  <span class="bilingual__en">Notice: the Goal uses "so that" to connect the action to the user outcome. The ACs are all testable. Out of scope is specific, not vague ("etc." is never acceptable).</span>
+                  <span class="bilingual__es">Notá: el Goal usa "para que" para conectar la acción con el resultado del usuario. Los ACs son todos verificables. El Out of scope es específico, no vago ("etc." nunca es aceptable).</span>
+                </div>
+
+                <hr class="module-divider">
+
+                <div class="module-complete-btn">
+                  <button class="btn btn--primary" onclick="markComplete('m1'); this.textContent='Completed ✓ / Completado ✓'; this.disabled=true;" aria-label="Mark module 1 as complete">
+                    Mark as complete / Marcar como completado
+                  </button>
+                </div>
+
+              </div>
+            </div>
+            <details class="meta-spec">
+              <summary>Spec: Module 1</summary>
+              <pre>
+SPEC: Module 1 — Anatomy of a spec
+Goal: Teach the 5 required fields of a spec so learners can write a
+      complete spec without referencing external documentation.
+Users: Developers new to SDD
+Acceptance criteria:
+- AC1: All 5 fields defined with explanation and example usage
+- AC2: Annotated real spec example (not contrived)
+- AC3: Bilingual EN + ES throughout
+- AC4: Mark as complete button persists state to localStorage
+Out of scope:
+- Field customization (org-specific fields)
+              </pre>
+            </details>
+          </article>
+
+          <!-- Module 2 -->
+          <article class="module-card" data-module="m2" role="listitem">
+            <div class="module-card__number">02</div>
+            <h3 class="module-card__title">
+              <div class="bilingual">
+                <span class="bilingual__en">Writing acceptance criteria</span>
+                <span class="bilingual__es">Escribir criterios de aceptación</span>
+              </div>
+            </h3>
+            <div class="module-card__desc bilingual--body bilingual">
+              <span class="bilingual__en">The difference between vague and precise ACs. Side-by-side examples with interactive quality check.</span>
+              <span class="bilingual__es">La diferencia entre ACs vagos y precisos. Ejemplos comparativos con verificación interactiva de calidad.</span>
+            </div>
+            <div class="module-card__footer">
+              <span class="module-card__time">
+                <i class="ph ph-clock" aria-hidden="true"></i>
+                7 min read
+              </span>
+              <button class="btn btn--primary btn--sm module-card__cta" aria-expanded="false" aria-controls="module-2-content">
+                <span class="btn-bilingual">
+                  <span class="bilingual__en">Start</span>
+                  <span class="bilingual__es">Empezar</span>
+                </span>
+              </button>
+            </div>
+            <div class="accordion" id="module-2-content">
+              <div class="accordion__content module-content">
+
+                <h4>
+                  <div class="bilingual">
+                    <span class="bilingual__en">What makes a good AC?</span>
+                    <span class="bilingual__es">¿Qué hace a un buen AC?</span>
+                  </div>
+                </h4>
+                <div class="bilingual--body bilingual">
+                  <span class="bilingual__en">A good acceptance criterion is: testable (can I run a test that passes or fails?), verb-first (starts with an action), and unambiguous (no vague qualifiers like "fast", "nice", "works well").</span>
+                  <span class="bilingual__es">Un buen criterio de aceptación es: verificable (¿puedo ejecutar un test que pase o falle?), con verbo al inicio (comienza con una acción) y sin ambigüedad (sin calificadores vagos como "rápido", "bonito", "funciona bien").</span>
+                </div>
+
+                <h4 style="margin-top:var(--space-5)">
+                  <div class="bilingual">
+                    <span class="bilingual__en">Bad AC vs Good AC</span>
+                    <span class="bilingual__es">AC malo vs AC bueno</span>
+                  </div>
+                </h4>
+
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);margin-top:var(--space-3)">
+                  <div>
+                    <p style="font-size:var(--text-xs);font-weight:600;color:#EF4444;margin-bottom:var(--space-2)">✗ Vague / Vago</p>
+                    <div class="example-block example-block--bad">The login should work well and be fast.</div>
+                    <div class="example-block example-block--bad" style="margin-top:var(--space-2)">Users can edit their profile.</div>
+                    <div class="example-block example-block--bad" style="margin-top:var(--space-2)">Error messages are nice.</div>
+                  </div>
+                  <div>
+                    <p style="font-size:var(--text-xs);font-weight:600;color:#22C55E;margin-bottom:var(--space-2)">✓ Precise / Preciso</p>
+                    <div class="example-block example-block--good">Login responds in &lt;500ms for 95th percentile.</div>
+                    <div class="example-block example-block--good" style="margin-top:var(--space-2)">Submit profile form → changes saved, toast shown.</div>
+                    <div class="example-block example-block--good" style="margin-top:var(--space-2)">Invalid email → red border + "Invalid email" text.</div>
+                  </div>
+                </div>
+
+                <h4 style="margin-top:var(--space-5)">
+                  <div class="bilingual">
+                    <span class="bilingual__en">The vague word blacklist</span>
+                    <span class="bilingual__es">La lista negra de palabras vagas</span>
+                  </div>
+                </h4>
+                <div class="bilingual--body bilingual">
+                  <span class="bilingual__en">If any of these words appear in an AC, rewrite it: <strong>works, good, nice, easy, fast, smooth, better, improved, simple, intuitive, user-friendly</strong>. Replace each with a measurable threshold or an observable outcome.</span>
+                  <span class="bilingual__es">Si alguna de estas palabras aparece en un AC, reescribilo: <strong>funciona, bueno, bonito, fácil, rápido, suave, mejor, mejorado, simple, intuitivo, amigable</strong>. Reemplazá cada una con un umbral medible o un resultado observable.</span>
+                </div>
+
+                <hr class="module-divider">
+                <div class="module-complete-btn">
+                  <button class="btn btn--primary" onclick="markComplete('m2'); this.textContent='Completed ✓ / Completado ✓'; this.disabled=true;">
+                    Mark as complete / Marcar como completado
+                  </button>
+                </div>
+
+              </div>
+            </div>
+            <details class="meta-spec">
+              <summary>Spec: Module 2</summary>
+              <pre>
+SPEC: Module 2 — Writing acceptance criteria
+Goal: Teach developers to distinguish vague from precise ACs and rewrite
+      bad ACs so they can produce testable specs independently.
+Users: Developers who have written ACs before but gotten feedback they were too vague
+Acceptance criteria:
+- AC1: Vague vs precise AC examples shown side by side
+- AC2: Explicit list of vague words to avoid
+- AC3: Bilingual EN + ES
+- AC4: Mark as complete persists to localStorage
+Out of scope:
+- Gherkin/Given-When-Then format
+              </pre>
+            </details>
+          </article>
+
+          <!-- Module 3 -->
+          <article class="module-card" data-module="m3" role="listitem">
+            <div class="module-card__number">03</div>
+            <h3 class="module-card__title">
+              <div class="bilingual">
+                <span class="bilingual__en">Spec granularity</span>
+                <span class="bilingual__es">Granularidad del spec</span>
+              </div>
+            </h3>
+            <div class="module-card__desc bilingual--body bilingual">
+              <span class="bilingual__en">How detailed should a spec be? Navigate the spectrum from too vague to too rigid.</span>
+              <span class="bilingual__es">¿Qué tan detallado debe ser un spec? Navegá el espectro de demasiado vago a demasiado rígido.</span>
+            </div>
+            <div class="module-card__footer">
+              <span class="module-card__time">
+                <i class="ph ph-clock" aria-hidden="true"></i>
+                6 min read
+              </span>
+              <button class="btn btn--primary btn--sm module-card__cta" aria-expanded="false" aria-controls="module-3-content">
+                <span class="btn-bilingual">
+                  <span class="bilingual__en">Start</span>
+                  <span class="bilingual__es">Empezar</span>
+                </span>
+              </button>
+            </div>
+            <div class="accordion" id="module-3-content">
+              <div class="accordion__content module-content">
+
+                <h4>
+                  <div class="bilingual">
+                    <span class="bilingual__en">The granularity spectrum</span>
+                    <span class="bilingual__es">El espectro de granularidad</span>
+                  </div>
+                </h4>
+                <div class="bilingual--body bilingual">
+                  <span class="bilingual__en">Specs that are too vague leave too much to interpretation. Specs that are too detailed become implementation prescriptions that prevent developer judgment. The sweet spot: enough detail to remove ambiguity about what to build, not how to build it.</span>
+                  <span class="bilingual__es">Los specs demasiado vagos dejan demasiado a la interpretación. Los specs demasiado detallados se convierten en prescripciones de implementación que impiden el juicio del desarrollador. El punto ideal: suficiente detalle para eliminar la ambigüedad sobre qué construir, no cómo construirlo.</span>
+                </div>
+
+                <div style="margin-top:var(--space-5);background:var(--bg-elevated);border-radius:var(--radius-md);padding:var(--space-4)">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:var(--space-3)">
+                    <span style="font-size:var(--text-xs);color:#EF4444;font-weight:600">Too vague / Muy vago</span>
+                    <span style="font-size:var(--text-xs);color:#22C55E;font-weight:600">Just right / Justo</span>
+                    <span style="font-size:var(--text-xs);color:#F97316;font-weight:600">Too rigid / Muy rígido</span>
+                  </div>
+                  <div style="height:8px;background:linear-gradient(90deg,#EF4444,#22C55E 50%,#F97316);border-radius:var(--radius-full);margin-bottom:var(--space-4)"></div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--space-3)">
+                    <div class="example-block example-block--bad" style="font-size:10px">"Build a search feature"</div>
+                    <div class="example-block example-block--good" style="font-size:10px">"Search returns results matching all query terms, sorted by relevance, ≤200ms"</div>
+                    <div class="example-block" style="font-size:10px;border-color:rgba(249,115,22,0.3)">"Use Elasticsearch 8.2 with BM25 scoring, index refreshed every 30s, use a debounced React hook at 250ms"</div>
+                  </div>
+                </div>
+
+                <h4 style="margin-top:var(--space-5)">
+                  <div class="bilingual">
+                    <span class="bilingual__en">Rules of thumb</span>
+                    <span class="bilingual__es">Reglas prácticas</span>
+                  </div>
+                </h4>
+                <ul>
+                  <li>
+                    <div class="bilingual">
+                      <span class="bilingual__en">Spec the WHAT (behavior), not the HOW (implementation).</span>
+                      <span class="bilingual__es">Especificá el QUÉ (comportamiento), no el CÓMO (implementación).</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bilingual">
+                      <span class="bilingual__en">If two developers would build different things from this spec, add a clarifying AC.</span>
+                      <span class="bilingual__es">Si dos desarrolladores construirían cosas distintas con este spec, agregá un AC aclaratorio.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bilingual">
+                      <span class="bilingual__en">If a developer would have no creative latitude, remove an AC.</span>
+                      <span class="bilingual__es">Si un desarrollador no tendría latitud creativa, eliminá un AC.</span>
+                    </div>
+                  </li>
+                </ul>
+
+                <hr class="module-divider">
+                <div class="module-complete-btn">
+                  <button class="btn btn--primary" onclick="markComplete('m3'); this.textContent='Completed ✓ / Completado ✓'; this.disabled=true;">
+                    Mark as complete / Marcar como completado
+                  </button>
+                </div>
+              </div>
+            </div>
+            <details class="meta-spec">
+              <summary>Spec: Module 3</summary>
+              <pre>
+SPEC: Module 3 — Spec granularity
+Goal: Teach developers to calibrate spec detail level so specs are neither
+      too vague (causing misalignment) nor too prescriptive (stifling judgment).
+Users: Developers who write specs that are either underspecified or over-engineered
+Acceptance criteria:
+- AC1: Three-point spectrum illustrated with real examples (vague, right, rigid)
+- AC2: Concrete rules of thumb for calibration
+- AC3: Bilingual EN + ES
+- AC4: Mark as complete persists to localStorage
+Out of scope:
+- Domain-specific spec formats (e.g. ML experiments, infrastructure)
+              </pre>
+            </details>
+          </article>
+
+          <!-- Module 4 -->
+          <article class="module-card" data-module="m4" role="listitem">
+            <div class="module-card__number">04</div>
+            <h3 class="module-card__title">
+              <div class="bilingual">
+                <span class="bilingual__en">The retrospective loop</span>
+                <span class="bilingual__es">El ciclo de retrospectiva</span>
+              </div>
+            </h3>
+            <div class="module-card__desc bilingual--body bilingual">
+              <span class="bilingual__en">After building, how to write a brief retro that feeds the next spec. Uses this site's own build log as a real example.</span>
+              <span class="bilingual__es">Después de construir, cómo escribir una retro breve que alimenta el próximo spec. Usa el build log de este sitio como ejemplo real.</span>
+            </div>
+            <div class="module-card__footer">
+              <span class="module-card__time">
+                <i class="ph ph-clock" aria-hidden="true"></i>
+                5 min read
+              </span>
+              <button class="btn btn--primary btn--sm module-card__cta" aria-expanded="false" aria-controls="module-4-content">
+                <span class="btn-bilingual">
+                  <span class="bilingual__en">Start</span>
+                  <span class="bilingual__es">Empezar</span>
+                </span>
+              </button>
+            </div>
+            <div class="accordion" id="module-4-content">
+              <div class="accordion__content module-content">
+
+                <h4>
+                  <div class="bilingual">
+                    <span class="bilingual__en">Why write a retro?</span>
+                    <span class="bilingual__es">¿Por qué escribir una retro?</span>
+                  </div>
+                </h4>
+                <div class="bilingual--body bilingual">
+                  <span class="bilingual__en">Without a retro, every feature is a one-way door: you build it, ship it, and forget what you learned. A retro closes the loop: it captures what the spec got right, what it missed, and what to do differently next time — turning one-time decisions into team knowledge.</span>
+                  <span class="bilingual__es">Sin una retro, cada funcionalidad es una puerta de un solo sentido: la construís, la enviás y olvidás lo que aprendiste. Una retro cierra el ciclo: captura qué acertó el spec, qué se perdió y qué hacer diferente la próxima vez, convirtiendo decisiones únicas en conocimiento del equipo.</span>
+                </div>
+
+                <h4 style="margin-top:var(--space-5)">
+                  <div class="bilingual">
+                    <span class="bilingual__en">The 3-question retro format</span>
+                    <span class="bilingual__es">El formato de retro de 3 preguntas</span>
+                  </div>
+                </h4>
+                <ul>
+                  <li>
+                    <div class="bilingual">
+                      <span class="bilingual__en"><strong>What matched the spec?</strong> — Celebrate what the spec clarified correctly. Reinforce it.</span>
+                      <span class="bilingual__es"><strong>¿Qué coincidió con el spec?</strong> — Celebrá lo que el spec clarificó correctamente. Reforzalo.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bilingual">
+                      <span class="bilingual__en"><strong>What diverged, and why?</strong> — Was the spec wrong? Was reality different? Who decided to deviate?</span>
+                      <span class="bilingual__es"><strong>¿Qué divergió y por qué?</strong> — ¿Estaba equivocado el spec? ¿Era diferente la realidad? ¿Quién decidió desviarse?</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="bilingual">
+                      <span class="bilingual__en"><strong>What would you spec differently?</strong> — One concrete change to the spec format or content for next time.</span>
+                      <span class="bilingual__es"><strong>¿Qué especificarías diferente?</strong> — Un cambio concreto al formato o contenido del spec para la próxima vez.</span>
+                    </div>
+                  </li>
+                </ul>
+
+                <h4 style="margin-top:var(--space-5)">
+                  <div class="bilingual">
+                    <span class="bilingual__en">Real example: Phase 1 of this site</span>
+                    <span class="bilingual__es">Ejemplo real: Fase 1 de este sitio</span>
+                  </div>
+                </h4>
+                <div class="example-block">What matched: Single-page architecture, token-based CSS, no build tool.
+What diverged: README "Lessons learned" section was written before
+  lessons were learned. Required retroactive invention.
+What we'd spec differently: Leave "Lessons learned" as placeholder;
+  fill in after Phase 7 with genuine observations.</div>
+                <div class="bilingual--body bilingual">
+                  <span class="bilingual__en">This is the actual retro from Phase 1 of building this site. You can read the full build log in the <a href="#meta">How this was built</a> section.</span>
+                  <span class="bilingual__es">Esta es la retro real de la Fase 1 de la construcción de este sitio. Podés leer el build log completo en la sección <a href="#meta">Cómo se construyó</a>.</span>
+                </div>
+
+                <hr class="module-divider">
+                <div class="module-complete-btn">
+                  <button class="btn btn--primary" onclick="markComplete('m4'); this.textContent='Completed ✓ / Completado ✓'; this.disabled=true;">
+                    Mark as complete / Marcar como completado
+                  </button>
+                </div>
+              </div>
+            </div>
+            <details class="meta-spec">
+              <summary>Spec: Module 4</summary>
+              <pre>
+SPEC: Module 4 — The retrospective loop
+Goal: Teach developers to write a brief post-build retro so they compound
+      learning across features rather than repeating the same mistakes.
+Users: Developers who skip post-mortems or write them too long after the fact
+Acceptance criteria:
+- AC1: 3-question retro format clearly defined
+- AC2: Real retro from this site's Phase 1 used as example
+- AC3: Link to build log for full context
+- AC4: Bilingual EN + ES
+- AC5: Mark as complete persists to localStorage
+Out of scope:
+- Sprint retrospectives (team dynamics, not spec-specific)
+              </pre>
+            </details>
+          </article>
+
+          <!-- Module 5 -->
+          <article class="module-card" data-module="m5" role="listitem">
+            <div class="module-card__number">05</div>
+            <h3 class="module-card__title">
+              <div class="bilingual">
+                <span class="bilingual__en">Team adoption playbook</span>
+                <span class="bilingual__es">Playbook de adopción en equipo</span>
+              </div>
+            </h3>
+            <div class="module-card__desc bilingual--body bilingual">
+              <span class="bilingual__en">Six concrete steps to introduce SDD to a team. Week-by-week rollout. Downloadable checklist.</span>
+              <span class="bilingual__es">Seis pasos concretos para introducir SDD en un equipo. Rollout semana a semana. Checklist descargable.</span>
+            </div>
+            <div class="module-card__footer">
+              <span class="module-card__time">
+                <i class="ph ph-clock" aria-hidden="true"></i>
+                8 min read
+              </span>
+              <button class="btn btn--primary btn--sm module-card__cta" aria-expanded="false" aria-controls="module-5-content">
+                <span class="btn-bilingual">
+                  <span class="bilingual__en">Start</span>
+                  <span class="bilingual__es">Empezar</span>
+                </span>
+              </button>
+            </div>
+            <div class="accordion" id="module-5-content">
+              <div class="accordion__content module-content">
+
+                <h4>
+                  <div class="bilingual">
+                    <span class="bilingual__en">The 6-step adoption timeline</span>
+                    <span class="bilingual__es">El cronograma de adopción de 6 pasos</span>
+                  </div>
+                </h4>
+
+                <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-4)">
+                  <div style="display:grid;grid-template-columns:80px 1fr;gap:var(--space-3);align-items:start">
+                    <span class="badge badge--accent">Week 1</span>
+                    <div class="bilingual--body bilingual">
+                      <span class="bilingual__en"><strong>Solo pilot.</strong> Write specs for your next 3 tickets — alone. Don't announce it yet. Observe how it changes your thinking before building.</span>
+                      <span class="bilingual__es"><strong>Piloto individual.</strong> Escribí specs para tus próximos 3 tickets — solo. No lo anunciés todavía. Observá cómo cambia tu forma de pensar antes de construir.</span>
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:80px 1fr;gap:var(--space-3);align-items:start">
+                    <span class="badge badge--accent">Week 2</span>
+                    <div class="bilingual--body bilingual">
+                      <span class="bilingual__en"><strong>Show one example.</strong> In a 1:1 or standup, show a spec you wrote and the ticket it replaced. Let the quality speak, don't pitch the methodology.</span>
+                      <span class="bilingual__es"><strong>Mostrá un ejemplo.</strong> En un 1:1 o standup, mostrá un spec que escribiste y el ticket que reemplazó. Dejá que la calidad hable, no presentes la metodología.</span>
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:80px 1fr;gap:var(--space-3);align-items:start">
+                    <span class="badge badge--teal">Week 3</span>
+                    <div class="bilingual--body bilingual">
+                      <span class="bilingual__en"><strong>Pair write.</strong> Write a spec together with one teammate for an upcoming feature. Ask for their corrections. The spec becomes shared understanding, not your document.</span>
+                      <span class="bilingual__es"><strong>Escribí en pareja.</strong> Escribí un spec junto con un compañero para una funcionalidad próxima. Pedí sus correcciones. El spec se convierte en entendimiento compartido, no en tu documento.</span>
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:80px 1fr;gap:var(--space-3);align-items:start">
+                    <span class="badge badge--teal">Week 4</span>
+                    <div class="bilingual--body bilingual">
+                      <span class="bilingual__en"><strong>Propose the template.</strong> Suggest adding the spec format to your ticket template in Jira/Linear/GitHub Issues. Frame it as "we added 5 fields that prevent rework" — not "a new process".</span>
+                      <span class="bilingual__es"><strong>Proponé el template.</strong> Sugería agregar el formato de spec al template de tickets en Jira/Linear/GitHub Issues. Enmarcalo como "agregamos 5 campos que previenen retrabajo", no como "un nuevo proceso".</span>
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:80px 1fr;gap:var(--space-3);align-items:start">
+                    <span class="badge badge--amber">Week 5–6</span>
+                    <div class="bilingual--body bilingual">
+                      <span class="bilingual__en"><strong>First team retro.</strong> After the first feature built with a shared spec ships, run a 15-minute retro using the 3-question format. Document it in the ticket or a shared doc. This creates institutional memory.</span>
+                      <span class="bilingual__es"><strong>Primera retro del equipo.</strong> Después de que se envíe la primera funcionalidad construida con un spec compartido, hacé una retro de 15 minutos usando el formato de 3 preguntas. Documentala en el ticket o un doc compartido. Esto crea memoria institucional.</span>
+                    </div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:80px 1fr;gap:var(--space-3);align-items:start">
+                    <span class="badge badge--accent">Week 7+</span>
+                    <div class="bilingual--body bilingual">
+                      <span class="bilingual__en"><strong>Make it a norm.</strong> At this point, "can you add the spec fields to this ticket?" becomes a normal code-review comment. No more pitching — it's just how your team works.</span>
+                      <span class="bilingual__es"><strong>Hacelo la norma.</strong> En este punto, "¿podés agregar los campos del spec a este ticket?" se convierte en un comentario normal de revisión de código. Sin más presentaciones — así es como trabaja tu equipo.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="module-divider">
+
+                <div class="bilingual--body bilingual" style="margin-bottom:var(--space-4)">
+                  <span class="bilingual__en"><strong>Download the checklist</strong> — a markdown file with the 6 steps formatted as a todo list you can paste into your team's wiki, Notion, or GitHub README.</span>
+                  <span class="bilingual__es"><strong>Descargá el checklist</strong> — un archivo markdown con los 6 pasos formateados como lista de tareas que podés pegar en la wiki, Notion o README de tu equipo.</span>
+                </div>
+
+                <button class="btn btn--ghost" id="download-checklist">
+                  <i class="ph ph-download-simple" aria-hidden="true"></i>
+                  <span class="btn-bilingual">
+                    <span class="bilingual__en">Download checklist (.md)</span>
+                    <span class="bilingual__es">Descargar checklist (.md)</span>
+                  </span>
+                </button>
+
+                <hr class="module-divider">
+                <div class="module-complete-btn">
+                  <button class="btn btn--primary" onclick="markComplete('m5'); this.textContent='Completed ✓ / Completado ✓'; this.disabled=true;">
+                    Mark as complete / Marcar como completado
+                  </button>
+                </div>
+              </div>
+            </div>
+            <details class="meta-spec">
+              <summary>Spec: Module 5</summary>
+              <pre>
+SPEC: Module 5 — Team adoption playbook
+Goal: Give Marco a concrete, week-by-week plan to introduce SDD to his team
+      so he can start next Monday without needing management approval first.
+Users: Mid/senior developers who want to lead SDD adoption in their team
+Acceptance criteria:
+- AC1: 6 steps presented in timeline format with week labels
+- AC2: Each step is actionable (starts with a verb, describes a concrete behavior)
+- AC3: Downloadable markdown checklist generated via JS Blob
+- AC4: Bilingual EN + ES
+- AC5: Mark as complete persists to localStorage
+Out of scope:
+- Management buy-in strategies
+- Org-level rollout (team-level only)
+              </pre>
+            </details>
+          </article>
+
+        </div>
+      </div>
+
       <details class="meta-spec">
         <summary>Spec: Learning Path Section</summary>
         <pre>
@@ -162,11 +991,12 @@ Goal: Guide Marco through the full SDD methodology in a self-paced,
       progress-tracked format so he retains the key concepts.
 Users: Mid/senior developers learning SDD for team adoption
 Acceptance criteria:
-- AC1: Progress bar reflects localStorage completion state
+- AC1: Progress bar reflects localStorage completion state in real time
 - AC2: Five module cards in asymmetric bento grid
-- AC3: Each card: number, title, description, time estimate, CTA
-- AC4: Module content expands inline via accordion (no page navigation)
-- AC5: "Mark as complete" persists to localStorage
+- AC3: Each card shows number, bilingual title, description, time estimate, CTA
+- AC4: Module content expands inline via accordion with CSS transition
+- AC5: "Mark as complete" persists state to localStorage
+- AC6: All content is bilingual EN + ES
 Out of scope:
 - Server-side progress tracking
 - Assessments or quizzes
@@ -174,11 +1004,169 @@ Out of scope:
       </details>
     </section>
 
-    <!-- ======================================
+    <!-- ============================================================
          SECTION 4: PLAYGROUND
-         ====================================== -->
-    <section id="playground" aria-label="Spec playground">
-      <!-- filled in Phase 5 -->
+         ============================================================ -->
+    <section id="playground" class="section" aria-labelledby="playground-title">
+      <div class="container">
+
+        <div class="section__header animate-on-scroll">
+          <p class="section__eyebrow">
+            <i class="ph ph-terminal-window" aria-hidden="true"></i>
+            Interactive / Interactivo
+          </p>
+          <h2 class="section__title" id="playground-title">
+            <div class="bilingual">
+              <span class="bilingual__en">Write your first spec</span>
+              <span class="bilingual__es">Escribí tu primer spec</span>
+            </div>
+          </h2>
+          <div class="section__subtitle">
+            <div class="bilingual">
+              <span class="bilingual__en">Use the editor below. The validator checks your spec in real time.</span>
+              <span class="bilingual__es">Usá el editor de abajo. El validador revisa tu spec en tiempo real.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example loaders -->
+        <div class="flex flex--gap-3 animate-on-scroll" style="margin-bottom:var(--space-5);flex-wrap:wrap">
+          <span style="font-size:var(--text-sm);color:var(--text-muted);align-self:center">
+            Load example / Cargar ejemplo:
+          </span>
+          <button class="btn btn--ghost btn--sm" data-example="feature">Feature spec</button>
+          <button class="btn btn--ghost btn--sm" data-example="bugfix">Bug fix spec</button>
+          <button class="btn btn--ghost btn--sm" data-example="api">API endpoint spec</button>
+        </div>
+
+        <!-- Two-pane layout -->
+        <div class="pane-layout animate-on-scroll">
+
+          <!-- Editor pane -->
+          <div>
+            <div class="editor-wrapper">
+              <div class="editor-header">
+                <div class="editor-header__dots">
+                  <span class="editor-header__dot editor-header__dot--r"></span>
+                  <span class="editor-header__dot editor-header__dot--y"></span>
+                  <span class="editor-header__dot editor-header__dot--g"></span>
+                </div>
+                <div class="editor-meta">
+                  <span id="char-count">0 chars</span>
+                  <span id="read-time">~0 min read</span>
+                </div>
+              </div>
+              <div class="editor-body">
+                <div class="editor-lines" id="line-numbers" aria-hidden="true"></div>
+                <textarea
+                  class="editor-textarea"
+                  id="spec-editor"
+                  aria-label="Spec editor"
+                  aria-describedby="editor-hint"
+                  spellcheck="false"
+                  placeholder="SPEC: [Your feature name]
+Goal: [What this achieves for the user]
+Users: [Who uses this feature]
+Acceptance criteria:
+- AC1: ...
+- AC2: ...
+Out of scope:
+- ..."
+                ></textarea>
+              </div>
+            </div>
+            <p id="editor-hint" class="sr-only">
+              Tab inserts 2 spaces. Ctrl+Enter runs validation.
+            </p>
+            <p style="font-size:var(--text-xs);color:var(--text-muted);margin-top:var(--space-2)">
+              Tab → indent · Ctrl+Enter → validate / Tab → indentar · Ctrl+Enter → validar
+            </p>
+          </div>
+
+          <!-- Analysis pane -->
+          <div class="analysis-panel">
+            <div class="analysis-score">
+              <div class="score-meter" aria-label="Spec score">
+                <div class="score-meter__circle" id="score-circle">
+                  <div class="score-meter__inner">
+                    <span class="score-meter__value" id="score-value" role="status" aria-live="polite">0</span>
+                    <span class="score-meter__label">/ 100</span>
+                  </div>
+                </div>
+              </div>
+              <div class="analysis-score__summary">
+                <p class="analysis-score__label">
+                  Spec Score / Puntaje del Spec
+                </p>
+                <p class="analysis-score__desc" id="score-summary">
+                  Start writing your spec to see your score. / Empezá a escribir tu spec para ver tu puntaje.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <p style="font-size:var(--text-sm);font-weight:600;color:var(--text-primary);margin-bottom:var(--space-3)">
+                Required fields / Campos obligatorios
+              </p>
+              <div class="checklist" id="field-checklist">
+                <div class="checklist__item" data-field="spec">
+                  <i class="ph ph-circle checklist__icon checklist__icon--fail" aria-hidden="true"></i>
+                  <div>
+                    <div>SPEC: name</div>
+                    <div class="checklist__tip">Add feature name / Agregá el nombre</div>
+                  </div>
+                </div>
+                <div class="checklist__item" data-field="goal">
+                  <i class="ph ph-circle checklist__icon checklist__icon--fail" aria-hidden="true"></i>
+                  <div>
+                    <div>Goal:</div>
+                    <div class="checklist__tip">Describe the user outcome / Describí el resultado del usuario</div>
+                  </div>
+                </div>
+                <div class="checklist__item" data-field="users">
+                  <i class="ph ph-circle checklist__icon checklist__icon--fail" aria-hidden="true"></i>
+                  <div>
+                    <div>Users:</div>
+                    <div class="checklist__tip">Who uses this? / ¿Quién lo usa?</div>
+                  </div>
+                </div>
+                <div class="checklist__item" data-field="ac">
+                  <i class="ph ph-circle checklist__icon checklist__icon--fail" aria-hidden="true"></i>
+                  <div>
+                    <div>Acceptance criteria:</div>
+                    <div class="checklist__tip">At least 1 testable AC / Al menos 1 AC verificable</div>
+                  </div>
+                </div>
+                <div class="checklist__item" data-field="scope">
+                  <i class="ph ph-circle checklist__icon checklist__icon--fail" aria-hidden="true"></i>
+                  <div>
+                    <div>Out of scope:</div>
+                    <div class="checklist__tip">At least 1 exclusion / Al menos 1 exclusión</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p style="font-size:var(--text-sm);font-weight:600;color:var(--text-primary);margin-bottom:var(--space-3)">
+                Acceptance criteria / Criterios de aceptación
+              </p>
+              <div class="ac-list" id="ac-analysis">
+                <p style="font-size:var(--text-xs);color:var(--text-muted)">
+                  ACs will appear here as you write them. / Los ACs aparecerán aquí mientras los escribís.
+                </p>
+              </div>
+            </div>
+
+            <button class="btn btn--ghost" id="copy-spec-btn" aria-label="Copy spec to clipboard">
+              <i class="ph ph-copy" aria-hidden="true"></i>
+              <span>Copy spec / Copiar spec</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
       <details class="meta-spec">
         <summary>Spec: Spec Playground</summary>
         <pre>
@@ -189,11 +1177,12 @@ Users: Developers actively learning or practicing SDD
 Acceptance criteria:
 - AC1: Two-pane layout (editor left, analysis right) on desktop; stacked on mobile
 - AC2: Textarea editor with line numbers, tab-to-indent, Ctrl+Enter shortcut
-- AC3: Validation engine scores 4 dimensions: structure, AC quality,
-       goal clarity, scope definition
-- AC4: Score displayed as circular CSS conic-gradient meter
+- AC3: Validation engine scores 4 dimensions (structure, AC quality,
+       goal clarity, scope definition) — 25 pts each
+- AC4: Score displayed as circular CSS conic-gradient meter, color shifts green/amber/red
 - AC5: Three example specs loadable via buttons
-- AC6: "Copy this spec" copies to clipboard
+- AC6: "Copy this spec" copies textarea content to clipboard
+- AC7: All UI labels are bilingual EN + ES
 Out of scope:
 - Saving specs to a server
 - Sharing specs via URL
@@ -201,11 +1190,155 @@ Out of scope:
       </details>
     </section>
 
-    <!-- ======================================
-         SECTION 5: META
-         ====================================== -->
-    <section id="meta" aria-label="How this site was built">
-      <!-- filled in Phase 6 -->
+    <!-- ============================================================
+         SECTION 5: META — How this site was built
+         ============================================================ -->
+    <section id="meta" class="section" aria-labelledby="meta-title" style="background:var(--bg-surface)">
+      <div class="container">
+
+        <div class="section__header animate-on-scroll">
+          <p class="section__eyebrow">
+            <i class="ph ph-code-block" aria-hidden="true"></i>
+            Meta-case / Meta-caso
+          </p>
+          <h2 class="section__title" id="meta-title">
+            <div class="bilingual">
+              <span class="bilingual__en">This site was built with SDD</span>
+              <span class="bilingual__es">Este sitio fue construido con SDD</span>
+            </div>
+          </h2>
+          <div class="section__subtitle">
+            <div class="bilingual">
+              <span class="bilingual__en">Every section you've read was specced before it was coded. Here's the proof.</span>
+              <span class="bilingual__es">Cada sección que leíste fue especificada antes de ser codificada. Acá está la prueba.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="align-items:start">
+
+          <!-- Build timeline -->
+          <div class="animate-on-scroll">
+            <h3 style="font-size:var(--text-xl);margin-bottom:var(--space-5)">
+              <div class="bilingual">
+                <span class="bilingual__en">Build timeline</span>
+                <span class="bilingual__es">Cronograma de construcción</span>
+              </div>
+            </h3>
+            <div class="timeline" id="build-timeline">
+
+              <div class="timeline__item">
+                <div class="timeline__node" title="Phase 1">1</div>
+                <div class="timeline__card" data-phase="1">
+                  <p class="timeline__phase-label">Phase 1 / Fase 1</p>
+                  <p class="timeline__title">
+                    <span>Repo bootstrap &amp; master spec</span>
+                    <span style="color:var(--text-muted)"> / Bootstrap del repo y spec maestro</span>
+                  </p>
+                  <p class="timeline__desc">File structure, master spec, CLAUDE.md, README.</p>
+                  <p class="timeline__commit" id="commit-1">Loading commit…</p>
+                </div>
+              </div>
+
+              <div class="timeline__item">
+                <div class="timeline__node" title="Phase 2">2</div>
+                <div class="timeline__card" data-phase="2">
+                  <p class="timeline__phase-label">Phase 2 / Fase 2</p>
+                  <p class="timeline__title">
+                    <span>Design system &amp; shell</span>
+                    <span style="color:var(--text-muted)"> / Sistema de diseño y shell</span>
+                  </p>
+                  <p class="timeline__desc">tokens.css, base.css, nav, footer, JS stubs.</p>
+                  <p class="timeline__commit" id="commit-2">Loading commit…</p>
+                </div>
+              </div>
+
+              <div class="timeline__item">
+                <div class="timeline__node" title="Phase 3">3</div>
+                <div class="timeline__card" data-phase="3">
+                  <p class="timeline__phase-label">Phase 3 / Fase 3</p>
+                  <p class="timeline__title">
+                    <span>Hero + concept + EN/ES</span>
+                    <span style="color:var(--text-muted)"> / Hero + concepto + EN/ES</span>
+                  </p>
+                  <p class="timeline__desc">Bilingual display pattern, hero aurora, concept bento, comparison strip.</p>
+                  <p class="timeline__commit" id="commit-3">Loading commit…</p>
+                </div>
+              </div>
+
+              <div class="timeline__item">
+                <div class="timeline__node" title="Phase 4">4</div>
+                <div class="timeline__card" data-phase="4">
+                  <p class="timeline__phase-label">Phase 4 / Fase 4</p>
+                  <p class="timeline__title">
+                    <span>5-module learning path</span>
+                    <span style="color:var(--text-muted)"> / Camino de aprendizaje</span>
+                  </p>
+                  <p class="timeline__desc">All 5 modules, accordions, localStorage progress.</p>
+                  <p class="timeline__commit" id="commit-4">Loading commit…</p>
+                </div>
+              </div>
+
+              <div class="timeline__item">
+                <div class="timeline__node" title="Phase 5">5</div>
+                <div class="timeline__card" data-phase="5">
+                  <p class="timeline__phase-label">Phase 5 / Fase 5</p>
+                  <p class="timeline__title">
+                    <span>Spec playground</span>
+                    <span style="color:var(--text-muted)"> / Playground de specs</span>
+                  </p>
+                  <p class="timeline__desc">Editor, validation engine, score meter.</p>
+                  <p class="timeline__commit" id="commit-5">Loading commit…</p>
+                </div>
+              </div>
+
+              <div class="timeline__item">
+                <div class="timeline__node" title="Phase 6">6</div>
+                <div class="timeline__card" data-phase="6">
+                  <p class="timeline__phase-label">Phase 6 / Fase 6</p>
+                  <p class="timeline__title">
+                    <span>Meta-case panel</span>
+                    <span style="color:var(--text-muted)"> / Panel meta-caso</span>
+                  </p>
+                  <p class="timeline__desc">Timeline, inspect mode, build log reader.</p>
+                  <p class="timeline__commit" id="commit-6">Loading commit…</p>
+                </div>
+              </div>
+
+              <div class="timeline__item">
+                <div class="timeline__node" title="Phase 7">7</div>
+                <div class="timeline__card" data-phase="7">
+                  <p class="timeline__phase-label">Phase 7 / Fase 7</p>
+                  <p class="timeline__title">
+                    <span>Polish &amp; QA</span>
+                    <span style="color:var(--text-muted)"> / Pulido y QA</span>
+                  </p>
+                  <p class="timeline__desc">Animations, a11y, mobile QA, final retrospective.</p>
+                  <p class="timeline__commit" id="commit-7">Loading commit…</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Build log reader -->
+          <div class="animate-on-scroll">
+            <h3 style="font-size:var(--text-xl);margin-bottom:var(--space-5)">
+              <div class="bilingual">
+                <span class="bilingual__en">Build log</span>
+                <span class="bilingual__es">Build log</span>
+              </div>
+            </h3>
+            <div id="build-log-reader" style="display:flex;flex-direction:column;gap:var(--space-3)">
+              <p style="font-size:var(--text-sm);color:var(--text-muted)">
+                Loading build log… / Cargando build log…
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       <details class="meta-spec">
         <summary>Spec: Meta-Case Section</summary>
         <pre>
@@ -215,9 +1348,10 @@ Goal: Demonstrate SDD credibility by showing every phase's spec, decisions,
 Users: Skeptical developers who want proof that SDD works in practice
 Acceptance criteria:
 - AC1: Vertical CSS timeline showing all 7 phases with real git commit hashes
-- AC2: "Inspect spec" floating button reveals spec of any section on click
-- AC3: Build log reader renders /docs/build-log.md with basic markdown support
-- AC4: All section meta-spec blocks are filled with actual specs
+- AC2: "Inspect spec" floating button appears after hero is scrolled past
+- AC3: Build log reader fetches /docs/build-log.md and renders with basic markdown
+- AC4: All section meta-spec blocks filled with actual specs
+- AC5: All UI labels are bilingual EN + ES
 Out of scope:
 - Real-time git integration
 - External analytics
@@ -230,26 +1364,33 @@ Out of scope:
   <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="footer__inner">
-      <p class="footer__text">Built with Spec-Driven Development · 2026</p>
+      <p class="footer__text">
+        Built with Spec-Driven Development · 2026
+        <span style="color:var(--text-muted)"> / Construido con SDD</span>
+      </p>
       <nav class="footer__links" aria-label="Footer navigation">
-        <a href="docs/build-log.md" class="footer__link" target="_blank" rel="noopener">View build log</a>
-        <a href="https://github.com/alexlecco/learn-spec-driven-dev" class="footer__link" target="_blank" rel="noopener">GitHub</a>
+        <a href="docs/build-log.md" class="footer__link" target="_blank" rel="noopener">
+          View build log / Ver build log
+        </a>
+        <a href="https://github.com/alexlecco/learn-spec-driven-dev" class="footer__link" target="_blank" rel="noopener">
+          GitHub
+        </a>
       </nav>
     </div>
   </footer>
 
-  <!-- Floating inspect button (Phase 6) -->
+  <!-- Floating inspect button -->
   <button
     class="inspect-btn"
     id="inspect-btn"
-    aria-label="Toggle inspect spec mode"
+    aria-label="Toggle inspect spec mode / Alternar modo inspección de spec"
     aria-pressed="false"
   >
     <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
-    Inspect spec
+    <span>Inspect spec / Ver spec</span>
   </button>
 
-  <!-- Modal for spec inspection (Phase 6) -->
+  <!-- Spec modal -->
   <div
     class="modal-backdrop"
     id="spec-modal"
@@ -259,8 +1400,10 @@ Out of scope:
   >
     <div class="modal">
       <div class="modal__header">
-        <h2 class="modal__title" id="modal-title">Section Spec</h2>
-        <button class="modal__close" id="modal-close" aria-label="Close modal">
+        <h2 class="modal__title" id="modal-title">
+          Section Spec / Spec de sección
+        </h2>
+        <button class="modal__close" id="modal-close" aria-label="Close modal / Cerrar modal">
           <i class="ph ph-x" aria-hidden="true"></i>
         </button>
       </div>
